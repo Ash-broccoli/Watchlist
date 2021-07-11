@@ -1,15 +1,13 @@
+import java.util.ArrayList;
+
 /**
  * A program that keeps your watched anime in order. Animes you want to watch are also here.
  * Some recommended links to websites to watch anime are also given.
  *
  * @author Alyssa Heimlicher
- * @date 2021.06.29
  * @version 1.0
- *
+ * @since 2021.06.29
  * */
-
-import java.util.ArrayList;
-
 public class ListDemo {
     Einleser e = new Einleser();
     String userChoice = "";
@@ -24,7 +22,7 @@ public class ListDemo {
         Show aot = new Show("Attack on Titan", 4, 25);
         Show dn = new Show("Death Note", 1, 39);
         Show mha = new Show("My Hero Academia", 5, 24);
-        Show ds = new Show("Demon Slayer", 1,  24);
+        Show ds = new Show("Demon Slayer", 1, 24);
 
         toWatchshows.add(aot);
         toWatchshows.add(dn);
@@ -32,7 +30,7 @@ public class ListDemo {
 
         alreadyWatchedShows.add(ds);
         while (!userChoice.equals("x")) {
-                start();
+            start();
         }
     }
 
@@ -118,7 +116,7 @@ public class ListDemo {
         deleteShowId = e.readInt();
         deleteShowId -= 1;
         System.out.println("==============================================\n" +
-                "|>" +toWatchshows.get(deleteShowId).getTitle() + " was deleted.\n" +
+                "|>" + toWatchshows.get(deleteShowId).getTitle() + " was deleted.\n" +
                 "----------------------------------------------");
         toWatchshows.remove(deleteShowId);
 
@@ -133,7 +131,7 @@ public class ListDemo {
         watchedShow = e.readInt();
         watchedShow -= 1;
         System.out.println("==============================================\n" +
-                "|>" +toWatchshows.get(watchedShow).getTitle() + " was moved.\n" +
+                "|>" + toWatchshows.get(watchedShow).getTitle() + " was moved.\n" +
                 "----------------------------------------------");
         moveASpecificValue(toWatchshows, alreadyWatchedShows, watchedShow);
 
@@ -144,9 +142,9 @@ public class ListDemo {
         String alreadyWatched;
         System.out.println("\n---Already Watched---");
         System.out.println("""
-            || l View List      ||
-            || a Add show       ||
-            || d delete a show  ||""");
+                || l View List      ||
+                || a Add show       ||
+                || d delete a show  ||""");
         System.out.print("What would you like to do? > ");
         alreadyWatched = e.readString();
 
@@ -157,7 +155,7 @@ public class ListDemo {
         }
     }
 
-    public void viewAlreadyWatchedList(){
+    public void viewAlreadyWatchedList() {
         System.out.println("\n---View list---");
         displayList(alreadyWatchedShows);
         System.out.println("------------------------------------");
@@ -169,7 +167,7 @@ public class ListDemo {
         userChoice = e.readString();
     }
 
-    public void addAlreadyWatched(){
+    public void addAlreadyWatched() {
         String name;
         int amtSeason;
         int amtEpisodes;
@@ -229,12 +227,12 @@ public class ListDemo {
         destination.add(source.remove(indexOfSpecificValue));
     }
 
-    public void displayList(ArrayList<Show>source) {
-        if(!source.isEmpty()){
+    public void displayList(ArrayList<Show> source) {
+        if (!source.isEmpty()) {
             for (int i = 0; i < source.size(); i++) {
-                System.out.println(i+1 + ") " + source.get(i));
+                System.out.println(i + 1 + ") " + source.get(i));
             }
-        }else {
+        } else {
             System.out.println("Your list is empty.");
         }
     }

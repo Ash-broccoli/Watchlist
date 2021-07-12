@@ -232,9 +232,8 @@ public class ListDemo {
             for (int i = 0; i < source.size(); i++) {
                 System.out.println(i + 1 + ") " + source.get(i));
             }
-        } else {
-            System.out.println("Your list is empty.");
-        }
+        } else System.out.println("Your list is empty.");
+
     }
 
 }

@@ -35,6 +35,6 @@ public class Show {
 
     @Override
     public String toString() {
-        return "Title = " + title + ", Seasons = " + amtSeasons + ", Episodes per season = " + amtEpisodePerSeason;
+        return title + ", Seasons: " + amtSeasons + ", Episodes per season: " + amtEpisodePerSeason;
     }
 }

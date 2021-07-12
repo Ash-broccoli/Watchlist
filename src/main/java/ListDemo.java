@@ -103,7 +103,7 @@ public class ListDemo {
         toWatchshows.add(s);
         System.out.println("""
                 ----------------------------------------------
-                |>Your entry was saved.
+                ▷Your entry was saved.
                 ----------------------------------------------""");
     }
 
@@ -124,7 +124,7 @@ public class ListDemo {
             deleteShowId = e.readInt();
             deleteShowId -= 1;
             System.out.println("==============================================\n" +
-                    "|>" + toWatchshows.get(deleteShowId).getTitle() + " was deleted.\n" +
+                    "▷" + toWatchshows.get(deleteShowId).getTitle() + " was deleted.\n" +
                     "----------------------------------------------");
             toWatchshows.remove(deleteShowId);
         }
@@ -147,7 +147,7 @@ public class ListDemo {
             watchedShow = e.readInt();
             watchedShow -= 1;
             System.out.println("==============================================\n" +
-                    "|>" + toWatchshows.get(watchedShow).getTitle() + " was moved.\n" +
+                    "▷" + toWatchshows.get(watchedShow).getTitle() + " was moved.\n" +
                     "----------------------------------------------");
             moveASpecificValue(toWatchshows, alreadyWatchedShows, watchedShow);
         }
@@ -199,7 +199,7 @@ public class ListDemo {
         alreadyWatchedShows.add(s);
         System.out.println("""
                 ----------------------------------------------
-                |>Your entry was saved.
+                ▷Your entry was saved.
                 ----------------------------------------------""");
 
     }
@@ -220,7 +220,7 @@ public class ListDemo {
             deleteShowId = e.readInt();
             deleteShowId -= 1;
             System.out.println("==============================================\n" +
-                    "|>" + alreadyWatchedShows.get(deleteShowId).getTitle() + " was deleted.\n" +
+                    "▷" + alreadyWatchedShows.get(deleteShowId).getTitle() + " was deleted.\n" +
                     "----------------------------------------------");
             alreadyWatchedShows.remove(deleteShowId);
         }

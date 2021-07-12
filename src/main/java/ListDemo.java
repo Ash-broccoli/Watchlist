@@ -108,34 +108,49 @@ public class ListDemo {
     }
 
     public void deleteToWatch() {
-        int deleteShowId;
-        System.out.println("\n---Delete a show---");
-        displayList(toWatchshows);
-        System.out.print("----------------------------------------------\n" +
-                "Which show do you want deleted? > ");
-        deleteShowId = e.readInt();
-        deleteShowId -= 1;
-        System.out.println("==============================================\n" +
-                "|>" + toWatchshows.get(deleteShowId).getTitle() + " was deleted.\n" +
-                "----------------------------------------------");
-        toWatchshows.remove(deleteShowId);
+        if(toWatchshows.isEmpty()){
+            System.out.println("""
+                    -----------------------------------------------------
+                    You're list is empty. Nothing to delete!
+                    -----------------------------------------------------
+                    """);
+        }else {
+
+            int deleteShowId;
+            System.out.println("\n---Delete a show---");
+            displayList(toWatchshows);
+            System.out.print("----------------------------------------------\n" +
+                    "Which show do you want deleted? > ");
+            deleteShowId = e.readInt();
+            deleteShowId -= 1;
+            System.out.println("==============================================\n" +
+                    "|>" + toWatchshows.get(deleteShowId).getTitle() + " was deleted.\n" +
+                    "----------------------------------------------");
+            toWatchshows.remove(deleteShowId);
+        }
 
     }
 
     public void watchedAShow() {
-        int watchedShow;
-        System.out.println("\n---Watched a show---");
-        displayList(toWatchshows);
-        System.out.print("----------------------------------------------\n" +
-                "Which show did you watch? > ");
-        watchedShow = e.readInt();
-        watchedShow -= 1;
-        System.out.println("==============================================\n" +
-                "|>" + toWatchshows.get(watchedShow).getTitle() + " was moved.\n" +
-                "----------------------------------------------");
-        moveASpecificValue(toWatchshows, alreadyWatchedShows, watchedShow);
-
-
+        if(toWatchshows.isEmpty()){
+            System.out.println("""
+                    -----------------------------------------------------
+                    You're list is empty. Nothing to move!
+                    -----------------------------------------------------
+                    """);
+        }else {
+            int watchedShow;
+            System.out.println("\n---Watched a show---");
+            displayList(toWatchshows);
+            System.out.print("----------------------------------------------\n" +
+                    "Which show did you watch? > ");
+            watchedShow = e.readInt();
+            watchedShow -= 1;
+            System.out.println("==============================================\n" +
+                    "|>" + toWatchshows.get(watchedShow).getTitle() + " was moved.\n" +
+                    "----------------------------------------------");
+            moveASpecificValue(toWatchshows, alreadyWatchedShows, watchedShow);
+        }
     }
 
     public void alreadyWatchedMenu() {
@@ -190,18 +205,25 @@ public class ListDemo {
     }
 
     public void deleteAlreadyWatch() {
-        int deleteShowId;
-        System.out.println("\n---Delete a show---");
-        displayList(alreadyWatchedShows);
-        System.out.print("----------------------------------------------\n" +
-                "Which show do you want deleted? > ");
-        deleteShowId = e.readInt();
-        deleteShowId -= 1;
-        System.out.println("==============================================\n" +
-                "|>" + alreadyWatchedShows.get(deleteShowId).getTitle() + " was deleted.\n" +
-                "----------------------------------------------");
-        alreadyWatchedShows.remove(deleteShowId);
-
+        if(alreadyWatchedShows.isEmpty()){
+            System.out.println("""
+                    -----------------------------------------------------
+                    You're list is empty. Nothing to delete!
+                    -----------------------------------------------------
+                    """);
+        }else{
+            int deleteShowId;
+            System.out.println("\n---Delete a show---");
+            displayList(alreadyWatchedShows);
+            System.out.print("----------------------------------------------\n" +
+                    "Which show do you want deleted? > ");
+            deleteShowId = e.readInt();
+            deleteShowId -= 1;
+            System.out.println("==============================================\n" +
+                    "|>" + alreadyWatchedShows.get(deleteShowId).getTitle() + " was deleted.\n" +
+                    "----------------------------------------------");
+            alreadyWatchedShows.remove(deleteShowId);
+        }
     }
 
     public void whereToWatch() {

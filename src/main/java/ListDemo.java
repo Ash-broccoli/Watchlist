@@ -110,10 +110,10 @@ public class ListDemo {
     public void deleteToWatch() {
         if(toWatchshows.isEmpty()){
             System.out.println("""
-                    -----------------------------------------------------
-                    You're list is empty. Nothing to delete!
-                    -----------------------------------------------------
-                    """);
+                -----------------------------------------------------
+                You're list is empty. Nothing to delete!
+                -----------------------------------------------------
+                """);
         }else {
 
             int deleteShowId;

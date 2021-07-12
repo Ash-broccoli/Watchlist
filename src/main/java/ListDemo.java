@@ -94,7 +94,7 @@ public class ListDemo {
         displayList(toWatchshows);
         System.out.println("------------------------------------");
         System.out.println("""
-                || h Back to menu ||
+                || Any key Back to menu ||
                 || x exit         ||
                 """);
         System.out.print("What would you like to do? > ");
@@ -196,7 +196,7 @@ public class ListDemo {
         displayList(alreadyWatchedShows);
         System.out.println("------------------------------------");
         System.out.println("""
-                || h Back to menu ||
+                || Any key Back to menu ||
                 || x exit         ||
                 """);
         System.out.print("What would you like to do? > ");
@@ -258,8 +258,8 @@ public class ListDemo {
                 https://www.netflix.com/ch-en/""");
         System.out.println("----------------------------------------------");
         System.out.println("""
-                || h Back to menu ||
-                || x exit         ||
+                || Any key Back to menu ||
+                || x exit               ||
                 """);
         System.out.print("What would you like to do? > ");
         userChoice = e.readString();

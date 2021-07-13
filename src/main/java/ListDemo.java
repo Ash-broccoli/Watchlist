@@ -200,7 +200,6 @@ public class ListDemo {
         } else {
             System.err.println("Error. Enter a valid letter!");
         }
-
     }
 
     public void viewAlreadyWatchedList() {
@@ -267,10 +266,7 @@ public class ListDemo {
         System.out.println("\n---Where to watch---");
         System.out.println("""
                 https://www.crunchyroll.com/\s
-                https://4anime.to/\s
-                https://simply.moe/\s
-                https://animekisa.tv/\s
-                https://animeheaven.ru/\s
+                https://www.funimation.com/\s
                 https://www.netflix.com/ch-en/""");
         System.out.println("----------------------------------------------");
         System.out.println("""

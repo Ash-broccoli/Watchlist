@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Alyssa Heimlicher
  * @version 1.0
  * @since 2021.06.29
- * */
+ */
 public class ListDemo {
     Einleser e = new Einleser();
     String userChoice = "";
@@ -36,29 +36,32 @@ public class ListDemo {
 
 
     public void start() {
-        System.out.println();
-        System.out.println("\n------------Welcome to your watchlist!------------");
-        System.out.println("""
-                || t To watch       ||
-                || a Already watched||
-                || w Where to watch ||
-                || x exit           ||
-                """);
-        System.out.print("What would you like to do? > ");
-        userChoice = e.readString();
+        try {
+            System.out.println();
+            System.out.println("\n------------Welcome to your watchlist!------------");
+            System.out.println("""
+                    || t To watch       ||
+                    || a Already watched||
+                    || w Where to watch ||
+                    || x exit           ||
+                    """);
+            System.out.print("What would you like to do? > ");
+            userChoice = e.readString();
 
 
-        if(userChoice.equals("t") || userChoice.equals("a") || userChoice.equals("w") || userChoice.equals("x")){
-            switch (userChoice) {
-                case "t" -> toWatchMenu();
-                case "a" -> alreadyWatchedMenu();
-                case "w" -> whereToWatch();
+            if (userChoice.equals("t") || userChoice.equals("a") || userChoice.equals("w") || userChoice.equals("x")) {
+                switch (userChoice) {
+                    case "t" -> toWatchMenu();
+                    case "a" -> alreadyWatchedMenu();
+                    case "w" -> whereToWatch();
+                }
+            } else if (Character.isDigit(userChoice.charAt(0))) {
+                System.err.println("Error. Enter a letter. Numbers are invalid!");
+            } else {
+                System.err.println("Error. Enter a valid letter!");
             }
-        }else if (Character.isDigit(userChoice.charAt(0))){
-            System.out.println("Error. Enter a letter. Numbers are invalid!");
-        }
-        else{
-            System.out.println("Error. Enter a valid letter!");
+        } catch (Exception e) {
+            System.err.println("Error! Empty input is invalid!");
         }
     }
 
@@ -73,18 +76,17 @@ public class ListDemo {
                 """);
         System.out.print("What would you like to do? > ");
         toWatchMenu = e.readString();
-        if(toWatchMenu.equals("l") || toWatchMenu.equals("a") || toWatchMenu.equals("d") || toWatchMenu.equals("w")) {
+        if (toWatchMenu.equals("l") || toWatchMenu.equals("a") || toWatchMenu.equals("d") || toWatchMenu.equals("w")) {
             switch (toWatchMenu) {
                 case "l" -> viewToWatchList();
                 case "a" -> addToWatch();
                 case "d" -> deleteToWatch();
                 case "w" -> watchedAShow();
             }
-        }else if (Character.isDigit(toWatchMenu.charAt(0))){
-            System.out.println("Error. Enter a letter. Numbers are invalid!");
-        }
-        else{
-            System.out.println("Error. Enter a valid letter!");
+        } else if (Character.isDigit(toWatchMenu.charAt(0))) {
+            System.err.println("Error. Enter a letter. Numbers are invalid!");
+        } else {
+            System.err.println("Error. Enter a valid letter!");
         }
     }
 
@@ -95,7 +97,7 @@ public class ListDemo {
         System.out.println("------------------------------------");
         System.out.println("""
                 || Any key Back to menu ||
-                || x exit         ||
+                || x exit               ||
                 """);
         System.out.print("What would you like to do? > ");
         userChoice = e.readString();
@@ -124,13 +126,13 @@ public class ListDemo {
 
     public void deleteToWatch() {
         try {
-            if(toWatchshows.isEmpty()){
+            if (toWatchshows.isEmpty()) {
                 System.out.println("""
-                -----------------------------------------------------
-                You're list is empty. Nothing to delete!
-                -----------------------------------------------------
-                """);
-            }else {
+                        -----------------------------------------------------
+                        You're list is empty. Nothing to delete!
+                        -----------------------------------------------------
+                        """);
+            } else {
 
                 int deleteShowId;
                 System.out.println("\n---Delete a show---");
@@ -145,35 +147,40 @@ public class ListDemo {
                 toWatchshows.remove(deleteShowId);
             }
 
-        }catch (Exception e) {
-            System.out.println("Error. Out of range!");
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println("Error. Out of range!");
         }
 
     }
 
     public void watchedAShow() {
-        if(toWatchshows.isEmpty()){
-            System.out.println("""
-                    -----------------------------------------------------
-                    You're list is empty. Nothing to move!
-                    -----------------------------------------------------
-                    """);
-        }else {
-            int watchedShow;
-            System.out.println("\n---Watched a show---");
-            displayList(toWatchshows);
-            System.out.print("----------------------------------------------\n" +
-                    "Which show did you watch? > ");
-            watchedShow = e.readInt();
-            watchedShow -= 1;
-            System.out.println("==============================================\n" +
-                    "▷" + toWatchshows.get(watchedShow).getTitle() + " was moved.\n" +
-                    "----------------------------------------------");
-            moveASpecificValue(toWatchshows, alreadyWatchedShows, watchedShow);
+        try {
+            if (toWatchshows.isEmpty()) {
+                System.out.println("""
+                        -----------------------------------------------------
+                        You're list is empty. Nothing to move!
+                        -----------------------------------------------------
+                        """);
+            } else {
+                int watchedShow;
+                System.out.println("\n---Watched a show---");
+                displayList(toWatchshows);
+                System.out.print("----------------------------------------------\n" +
+                        "Which show did you watch? > ");
+                watchedShow = e.readInt();
+                watchedShow -= 1;
+                System.out.println("==============================================\n" +
+                        "▷" + toWatchshows.get(watchedShow).getTitle() + " was moved.\n" +
+                        "----------------------------------------------");
+                moveASpecificValue(toWatchshows, alreadyWatchedShows, watchedShow);
+            }
+        }catch(IndexOutOfBoundsException e){
+            System.err.println("Error. Out of range!");
         }
     }
 
     public void alreadyWatchedMenu() {
+
         String alreadyWatched;
         System.out.println("\n---Already Watched---");
         System.out.println("""
@@ -182,11 +189,16 @@ public class ListDemo {
                 || d delete a show  ||""");
         System.out.print("What would you like to do? > ");
         alreadyWatched = e.readString();
-
-        switch (alreadyWatched) {
-            case "l" -> viewAlreadyWatchedList();
-            case "a" -> addAlreadyWatched();
-            case "d" -> deleteAlreadyWatch();
+        if (alreadyWatched.equals("l") || alreadyWatched.equals("a") || alreadyWatched.equals("d")) {
+            switch (alreadyWatched) {
+                case "l" -> viewAlreadyWatchedList();
+                case "a" -> addAlreadyWatched();
+                case "d" -> deleteAlreadyWatch();
+            }
+        } else if (Character.isDigit(alreadyWatched.charAt(0))) {
+            System.err.println("Error. Enter a letter. Numbers are invalid!");
+        } else {
+            System.err.println("Error. Enter a valid letter!");
         }
 
     }
@@ -197,7 +209,7 @@ public class ListDemo {
         System.out.println("------------------------------------");
         System.out.println("""
                 || Any key Back to menu ||
-                || x exit         ||
+                || x exit               ||
                 """);
         System.out.print("What would you like to do? > ");
         userChoice = e.readString();
@@ -226,13 +238,14 @@ public class ListDemo {
     }
 
     public void deleteAlreadyWatch() {
-        if(alreadyWatchedShows.isEmpty()){
+        try{
+        if (alreadyWatchedShows.isEmpty()) {
             System.out.println("""
                     -----------------------------------------------------
                     You're list is empty. Nothing to delete!
                     -----------------------------------------------------
                     """);
-        }else{
+        } else {
             int deleteShowId;
             System.out.println("\n---Delete a show---");
             displayList(alreadyWatchedShows);
@@ -244,6 +257,9 @@ public class ListDemo {
                     "▷" + alreadyWatchedShows.get(deleteShowId).getTitle() + " was deleted.\n" +
                     "----------------------------------------------");
             alreadyWatchedShows.remove(deleteShowId);
+        }
+        }catch(IndexOutOfBoundsException e){
+            System.err.println("Error. Out of range!");
         }
     }
 

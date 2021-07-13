@@ -200,7 +200,6 @@ public class ListDemo {
         } else {
             System.err.println("Error. Enter a valid letter!");
         }
-
     }
 
     public void viewAlreadyWatchedList() {
